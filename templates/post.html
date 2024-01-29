@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <h1>{{post.title}}</h1>
+        <h2>Posted by: {{post.user.get_full_name()}}</h2>
+        <h3>Create at: {{post.created_at}}</h3>
+        <p>Tags: 
+            {% for tag in post.tags %}
+            {{tag.name}} 
+            {% endfor %}
+        </p>
+        <p>{{post.content}}</p>
+    </div>
+    <div>
+        <form action="/posts/{{post.id}}/edit">
+            <button>Edit</button>
+        </form>
+        <form action="/posts/{{post.id}}/delete" method="POST">
+            <button>Delete</button>
+        </form>
+    </div>
+{% endblock %}

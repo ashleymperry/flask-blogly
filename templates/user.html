@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <img src={{user.image_url}} alt="profile-picture">
+    <div id="user information">
+        id: {{user.id}}
+        First Name: {{user.first_name}}
+        Last Name: {{user.last_name}}
+    </div>
+    <div>
+        <form action="/users"><button>Back</button></form>
+        <form action="/users/{{user.id}}/edit"><button>Edit User</button></form>
+        <form action="/users/{{user.id}}/delete" method="POST"><button>Delete User</button></form>
+    </div>
+    <div>
+        {% for post in user.posts %}
+            <a href="/posts/{{post.id}}">{{post.title}}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Create Post</h1>
+    <div>
+        <form action="/users/{{user_id}}/posts/new" method="POST">
+            <label for="title">Title:</label> <input id="title" name="title" type="text">
+            <label for="content">Content:</label> <input id="content" name="content" type="text">
+            <button>Submit</button>
+        </form>
+    </div>
+{% endblock %}
